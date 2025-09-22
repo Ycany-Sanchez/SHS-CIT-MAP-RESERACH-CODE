@@ -1,0 +1,315 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+#map-container {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  height: 100%;
+}
+
+.column {
+  float: left;
+  width: 25%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+  background-color: #ddd;
+  border: 1px solid #ddd;
+}
+.hide {
+  display: none;
+  }
+
+.building {
+  fill: #800000;
+  stroke: #555;
+  stroke-width: 1.5;
+  cursor: pointer;
+}
+
+
+.building:hover {
+  fill: #FFD700;
+  animation: animate 2s linear forwards;
+  display: block;
+}
+
+.locator {
+  fill: #800000;
+  z-index: -100;
+  
+}
+
+#result {
+width: 100px;
+height: 100px;
+margin-top: 10px;
+}
+
+.waypoint {
+  fill: #dddd;
+  cursor: pointer;
+}
+
+.waypoint:hover {
+  fill: #FFD700;
+ 
+}
+
+
+
+.highlight {
+background-color: rgb(23, 19, 236);
+}
+
+.no-highlight {
+background-color: transparent;
+}
+
+  /* Define your highlight style here */
+  .highlighted {
+    fill: yellow;
+    stroke: red;
+    stroke-width: 2;
+  }
+
+  .modal {
+    display: none; /* Hide the modal by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    
+  }
+  
+  .modalExtension {
+    display: none; /* Hide the modal by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    
+  }
+  .modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; /* 10% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%; /* Could be more or less, depending on screen size */
+    border-radius: 10px;
+  }
+  
+  .centered-content {
+    text-align: center;
+  }
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+form {
+  margin: 0 30px;
+  }
+  .account-type, .gender {
+  margin: 15px 0;
+  }
+  input[type=radio] {
+  display: none;
+  }
+  label#icon {
+  margin: 0;
+  border-radius: 5px 0 0 5px;
+  }
+  
+  input[type=radio]:checked + label:after {
+  opacity: 1;
+  }
+  input[type=text], input[type=password] {
+  width: calc(100% - 57px);
+  height: 36px;
+  margin: 13px 0 0 -5px;
+  padding-left: 10px; 
+  border-radius: 0 5px 5px 0;
+  border: solid 1px #cbc9c9; 
+  box-shadow: 1px 2px 5px rgba(0,0,0,.09); 
+  background: #fff; 
+  }
+  input[type=password] {
+  margin-bottom: 15px;
+  }
+
+  input {
+    width: 20%;
+    padding: 10px 0;
+    margin: 10px auto;
+    border-radius: 5px; 
+    border: none;
+    background: #1c87c9; 
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    }
+
+    input:hover {
+      background: #26a9e0;
+      }
+  #icon {
+  display: inline-block;
+  padding: 9.3px 15px;
+  box-shadow: 1px 2px 5px rgba(0,0,0,.09); 
+  background: #1c87c9;
+  color: #fff;
+  text-align: center;
+  }
+  .btn-block {
+  margin-top: 10px;
+  text-align: center;
+  }
+  
+  #home {
+    width: 20%;
+    padding: 10px 0;
+    margin: 10px auto;
+    border-radius: 5px;
+    border: none;
+    background: green;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+}
+
+  button {
+  width: 20%;
+  padding: 10px 0;
+  margin: 10px auto;
+  border-radius: 5px; 
+  border: none;
+  background: red; 
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  }
+  button:hover {
+  background: #FFD700;
+  }
+
+  select{
+    padding: 5px 10px 5px 10px ;
+  }
+  
+  .custom-select {
+    position: relative;
+    font-family: Arial;
+  }
+  
+  .custom-select select {
+    display: none; /*hide original SELECT element:*/
+  }
+  
+  .select-selected {
+    background-color: DodgerBlue;
+  }
+  
+  /*style the arrow inside the select element:*/
+  .select-selected:after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #fff transparent transparent transparent;
+  }
+  
+  /*point the arrow upwards when the select box is open (active):*/
+  .select-selected.select-arrow-active:after {
+    border-color: transparent transparent #fff transparent;
+    top: 7px;
+  }
+  
+  /*style the items (options), including the selected item:*/
+  .select-items div,.select-selected {
+    color: #ffffff;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  /*style items (options):*/
+  .select-items {
+    position: absolute;
+    background-color: DodgerBlue;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+  
+  /*hide the items when the select box is closed:*/
+  .select-hide {
+    display: none;
+  }
+  
+  .select-items div:hover, .same-as-selected {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+   /* Additional mobile-responsive styles */
+   @media screen and (max-width: 600px) {
+    header {
+        padding-top: 10px;
+    }
+    .nav-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .app-name, .search-bar-container {
+        margin: 10px;
+        text-align: center;
+    }
+    .search-bar-container form {
+        margin: 10px auto;
+        text-align: center;
+    }
+    .search-bar-container button {
+        margin-top: 10px;
+    }
+}
